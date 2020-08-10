@@ -1,0 +1,8 @@
+POST /ACS-server/ACS HTTP/1.1
+Host: devacs.edatahome.com:9090
+Content-Type: text/xml; charset="utf-8"
+Connection: TE, Keep-Alive
+TE: trailers
+Content-Length: 1603
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp="urn:dslforum-org:cwmp-1-0"><soap:Header><cwmp:ID cwmp:mustUnderstand="1">1</cwmp:ID></soap:Header><soap:Body> <cwmp:Inform><DeviceId><Manufacturer>JIUZHOU</Manufacturer><OUI>990102</OUI><ProductClass>IH0912-V100</ProductClass><SerialNumber>00100199010211400000D0154AD4934C</SerialNumber></DeviceId><Event soapenc:arrayType="cwmp:EventStruct[1]"><EventStruct><EventCode>0 BOOTSTRAP</EventCode><CommandKey/></EventStruct></Event><MaxEnvelopes>1</MaxEnvelopes><CurrentTime>2000-01-01T00:07:40</CurrentTime><RetryCount>0</RetryCount><ParameterList soapenc:arrayType="cwmp:ParameterValueStuct[6]"><ParameterValueStruct><Name>Device.DeviceInfo.HardwareVersion</Name><Value>JZ_V2.0</Value></ParameterValueStruct><ParameterValueStruct><Name>Device.DeviceInfo.SoftwareVersion</Name><Value>JZ_V2.1d</Value></ParameterValueStruct><ParameterValueStruct><Name>Device.ManagementServer.ConnectionRequestURL</Name><Value>http://182.138.129.90:20000</Value></ParameterValueStruct><ParameterValueStruct><Name>Device.LAN.IPAddress</Name><Value>182.138.129.90</Value></ParameterValueStruct><ParameterValueStruct><Name>Device.LAN.MACAddress</Name><Value>00262E0026D0</Value></ParameterValueStruct><ParameterValueStruct><Name>Device.X_CTC_IPTV.STBID</Name><Value>00100299001000B0000100227E00EFF0</Value></ParameterValueStruct></ParameterList></cwmp:Inform></soap:Body></soap:Envelope>

@@ -1,0 +1,10 @@
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Digest realm="testrealm@host.com", qop="auth,auth-int", nonce="4e5caa19ca53583214c7", opaque="30b359c7"
+Server: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 237
+Connection: close
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope><SOAP-ENV:Body><SOAP-ENV:Fault><faultcode>SOAP-ENV:Client</faultcode><faultstring>HTTP Error: 401 Unauthorized</faultstring></SOAP-ENV:Fault></SOAP-ENV:Body></SOAP-ENV:Envelope>
+

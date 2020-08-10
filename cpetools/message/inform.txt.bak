@@ -1,0 +1,58 @@
+POST /ACS-server/ACS HTTP/1.1
+Host: 182.138.3.190:9090
+User-Agent: JZ_TR69_CPE_CT
+Connection: Keep-Alive
+SOAPAction: 
+Content-Type: text/xml
+Content-Length: 1812
+
+<SOAP-ENV:Envelope xmlns:SOAPENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp="urn:dslforum-org:cwmp-1-1">
+<SOAP-ENV:Header>
+<cwmp:HoldRequests SOAP-ENV:mustUnderstand="">false</cwmp:HoldRequests>
+<cwmp:ID SOAP-ENV:mustUnderstand=""></cwmp:ID>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+<cwmp:Inform>
+<DeviceId>
+<Manufacturer>JZ</Manufacturer>
+<OUI>990010</OUI>
+<ProductClass>IH0912-V100</ProductClass>
+<SerialNumber>00100299001000B0000100227E00EFF0</SerialNumber>
+</DeviceId>
+<Event SOAP-ENC:arrayType="cwmp:EventStruct[1]">
+<EventStruct>
+<EventCode>0 BOOTSTRAP</EventCode>
+<CommandKey></CommandKey>
+</EventStruct>
+</Event>
+<MaxEnvelopes>1</MaxEnvelopes>
+<CurrentTime>2011-08-05T08:32:29Z</CurrentTime>
+<RetryCount>0</RetryCount>
+<ParameterList SOAP-ENC:arrayType="cwmp:ParameterValueStruct[6]">
+<ParameterValueStruct>
+<Name>Device.DeviceInfo.HardwareVersion</Name>
+<Value>KB1.100.01H</Value>
+</ParameterValueStruct>
+<ParameterValueStruct>
+<Name>Device.DeviceInfo.SoftwareVersion</Name>
+<Value>KSC.I00.08H</Value>
+</ParameterValueStruct>
+<ParameterValueStruct>
+<Name>Device.ManagementServer.ConnectionRequestURL</Name>
+<Value>http://182.138.64.106:8080</Value>
+</ParameterValueStruct>
+<ParameterValueStruct>
+<Name>Device.LAN.IPAddress</Name>
+<Value>182.138.64.106</Value>
+</ParameterValueStruct>
+<ParameterValueStruct>
+<Name>Device.LAN.MACAddress</Name>
+<Value>00227E00EFF0</Value>
+</ParameterValueStruct>
+<ParameterValueStruct>
+<Name>Device.X_CTC_IPTV.STBID</Name>
+<Value>00100299001000B0000100227E00EFF0</Value>
+</ParameterValueStruct></ParameterList>
+</cwmp:Inform>
+</soap:Body>
+</soap:Envelope>

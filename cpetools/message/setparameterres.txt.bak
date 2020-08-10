@@ -1,0 +1,8 @@
+POST /ACS-server/ACS HTTP/1.1
+Host: devacs.edatahome.com:9090
+Content-Type: text/xml; charset="utf-8"
+Connection: TE, Keep-Alive
+TE: trailers
+Content-Length: 499
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp1="urn:dslforum-org:cwmp-1-1"><SOAP-ENV:Header><cwmp1:ID SOAP-ENV:mustUnderstand=""></cwmp1:ID></SOAP-ENV:Header><SOAP-ENV:Body><cwmp1:SetParameterValuesResponse><Status>0</Status></cwmp1:SetParameterValuesResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>

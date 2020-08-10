@@ -1,0 +1,27 @@
+HTTP/1.1 200 OK
+Content-Type: text/xml; charset="utf-8"
+Content-Length: 1191
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp1="urn:dslforum-org:cwmp-1-1">
+<SOAP-ENV:Header>
+<cwmp1:HoldRequests SOAP-ENV:mustUnderstand="">false</cwmp1:HoldRequests>
+<cwmp1:ID SOAP-ENV:mustUnderstand=""></cwmp1:ID></SOAP-ENV:Header>
+<SOAP-ENV:Body>
+<cwmp1:SetParameterValues>
+<ParameterList SOAP-ENC:arrayType="cwmp1:ParameterValueStruct[3]">
+<ParameterValueStruct>
+<Name xsi:type="xsd:string">Device.X_CTC_IPTV.ServiceInfo.UserID</Name>
+<Value xsi:type="xsd:string">48</Value></ParameterValueStruct>
+<ParameterValueStruct>
+<Name xsi:type="xsd:string">Device.X_CTC_IPTV.ServiceInfo.UserPassword</Name>
+<Value xsi:type="xsd:string">0</Value>
+</ParameterValueStruct>
+<ParameterValueStruct>
+<Name xsi:type="xsd:string">Device.X_CTC_IPTV.ServiceInfo.AuthURL</Name>
+<Value xsi:type="xsd:string">http://182.138.3.142:8082/EDS/jsp/AuthenticationURL</Value>
+</ParameterValueStruct>
+</ParameterList>
+<ParameterKey></ParameterKey>
+</cwmp1:SetParameterValues>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/JZRepository/ST/!svn/ver/3513/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device
+END
+time.c
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/time.c
+END
+userinterface.c
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/userinterface.c
+END
+managementserver.c
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/managementserver.c
+END
+xctciptv.c
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv.c
+END
+config.c
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/config.c
+END
+stbservice.c
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/stbservice.c
+END
+lan.c
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/lan.c
+END
+deviceinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/deviceinfo.c
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/makefile
+END
+gatewayinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/gatewayinfo.c
+END

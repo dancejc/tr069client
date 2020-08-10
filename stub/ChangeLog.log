@@ -1,0 +1,22 @@
+2012-5-9 14:50:13 JIANGCHEN
+add soap_send_empty_request function.
+
+2012-4-25 14:53:47 JIANGCHEN
+stdsoap2.c line 5791
+Modify response
+
+2011-8-18 11:36:11 JIANGCHEN
+stdsoap2.c line 5603,5604
+Change HTTP header User-Agent name "gSOAP/2.8" into "JZ TR69C/1.0".
+stdsoap2.c line 5754,5755
+Change HTTP header Server name "gSOAP/2.8" into "JZ TR69C/1.0".
+
+2011-8-21 0:49:18 JIANGCHEN
+stdsoap2.c line 14486~14493
+Add code to process ITMS EMPTY function.
+BTW: GSOAP can`t support format like this "Connection: TE, close". Maybe it`s a bug.
+
+2011-8-22 16:48:17 JIANGCHEN
+stdsoap2.h line 1207
+Define user Receive ITMS EMPTY post.
+ 

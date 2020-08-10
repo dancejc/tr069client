@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv
+END
+statisticconfiguration.c
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv/statisticconfiguration.c
+END
+imsinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv/imsinfo.c
+END
+logmsg.c
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv/logmsg.c
+END
+servicestatistics.c
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv/servicestatistics.c
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv/makefile
+END
+serviceinfo.c
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/JZRepository/ST/!svn/ver/3501/7105/Trunk/v2_sdk36/source1/application_package/tr69c_v2/configuration/root/device/xctciptv/serviceinfo.c
+END

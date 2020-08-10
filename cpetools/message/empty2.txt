@@ -1,0 +1,6 @@
+POST /ACS-server/ACS HTTP/1.1
+Content-Type: text/xml; charset="utf-8"
+Connection: TE, Keep-Alive
+TE: trailers
+Content-Length: 0
+

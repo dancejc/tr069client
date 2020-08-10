@@ -1,0 +1,6 @@
+POST /ACS-server/ACS HTTP/1.1
+Connection: keep-alive
+Content-Type: text/xml; charset="utf-8"
+Content-Length: 539
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cwmp1="urn:dslforum-org:cwmp-1-0"><SOAP-ENV:Header><cwmp1:HoldRequests SOAP-ENV:mustUnderstand="">false</cwmp1:HoldRequests><cwmp1:ID SOAP-ENV:mustUnderstand=""></cwmp1:ID></SOAP-ENV:Header><SOAP-ENV:Body><cwmp1:Reboot><CommandKey></CommandKey></cwmp1:Reboot></SOAP-ENV:Body></SOAP-ENV:Envelope>

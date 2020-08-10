@@ -1,0 +1,183 @@
+#include "stdsoap2.h"
+
+#include "cpedef.h"
+#include "cpefunc.h"
+//#include "cpeutility.h"
+#include "cpe.h"
+
+#include "soapStub.h"
+#include "httpda.h"
+
+/*#ifdef CPE_DEBUG
+//const char server[] = "http://10.2.7.27:8080/openacs/acs";
+const char server[] = "http://10.2.7.29:9090/";
+//const char server[] = "http://182.138.3.190:9090/ACS-server/ACS";
+#else
+const char server[] = "http://devacs.edatahome.com:9090/ACS-server/ACS";
+//const char server[] = "http://182.138.3.190:9090/ACS-server/ACS";
+#endif*/
+
+int send_empty(struct soap *soap)
+{
+	//soap_init2(soap, SOAP_IO_KEEPALIVE, SOAP_IO_KEEPALIVE);
+	//soap->count = 0;
+	//soap->length = 0;
+	//use own post method.
+	/*if (soap_connect(soap, server, "")) {
+     soap_print_fault(soap, stderr);
+	}*/
+	//soap->fpost = cpe_emptypost;
+	//soap_end_send(soap);
+	//Just set soap->socket in fdset.
+	
+	//INFO: Use soap_init function to restore default callback.
+	//follow the manual, we can use soap_done functino, but it will crash in here.
+	//Restore default callbacks.
+	//soap_init2(soap, SOAP_IO_KEEPALIVE, SOAP_IO_KEEPALIVE);
+	//soap_init(soap);
+	
+	//char *emptystr = "POST /ACS-server/ACS HTTP/1.1\nContent-Length: 0\n\n";
+	char *emptystr = "POST /ACS-server/ACS HTTP/1.1\nHost: devacs.edatahome.com:9090\nUser-Agent: JZ TR69C/1.0\nContent-Type: text/xml\nConnection: Keep-Alive\nContent-Length: 0\n\n";
+	write(soap->socket, emptystr, strlen(emptystr));
+	//http_da_restore(soap, get_app()->httpda_info);
+	//http_da_save(soap, get_app()->httpda_info, "gSOAP Web Server Admin", "aaa", "111");
+	//soap_send_empty_response(soap, SOAP_OK);
+	return 0;
+}
+
+int send_bootstrap_inform(struct soap *soap)
+{
+	int i = 0, ret = 0;
+	struct _cwmp1__Inform inform;
+	struct _cwmp1__InformResponse informres;
+	
+	struct cwmp1__DeviceIdStruct deviceid;
+	
+	/*soap->header = (SOAP_ENV__Header *)soap_malloc(soap, sizeof(SOAP_ENV__Header));
+	soap->header->cwmp1__ID = (struct _cwmp1__ID*)malloc( sizeof(struct _cwmp1__ID));
+      soap->header->cwmp1__ID->__item = "1";*/
+	
+	deviceid.Manufacturer = "JIUZHOU";
+	deviceid.OUI = "990102";
+	deviceid.ProductClass = "JIUZHOUV10";
+	deviceid.SerialNumber = "00100199010211400000D0154AD4934C";
+	//deviceid.Manufacturer = get_manufacturer();
+	//deviceid.OUI = get_OUI();
+	//deviceid.ProductClass = get_productclass();
+	//this is device id
+	//deviceid.SerialNumber = get_serialnumber();
+	inform.RetryCount = 0;
+	inform.CurrentTime = get_nowtime();
+	inform.DeviceId=&deviceid;
+	inform.Event = NULL;
+	inform.ParameterList = NULL;
+	inform.MaxEnvelopes = 1;
+	
+	//set event code list
+	struct cwmp1EventList EventList;
+	EventList.__size = 1;
+	struct cwmp1__EventStruct EventStruct[1];
+	EventStruct[0].EventCode = "0 BOOTSTRAP";
+	EventStruct[0].CommandKey = "";
+	struct cwmp1__EventStruct *pEventStruct[1];
+	pEventStruct[0] = &EventStruct[0];
+	EventList.__ptrEventStruct = pEventStruct;
+	inform.Event = &EventList;
+				
+	//set parameter value list
+	struct cwmp1ParameterValueList ParameterValueList;
+	ParameterValueList.__size = 6;
+	struct cwmp1__ParameterValueStruct ParameterValueStruct[6];
+	ParameterValueStruct[0].Name = "Device.DeviceInfo.HardwareVersion";
+	ParameterValueStruct[0].Value = "JZ_V2.0";
+	ParameterValueStruct[1].Name = "Device.DeviceInfo.SoftwareVersion";
+	ParameterValueStruct[1].Value = "JZ_V2.1d";
+	ParameterValueStruct[2].Name = "Device.ManagementServer.ConnectionRequestURL";
+	ParameterValueStruct[2].Value = "http://182.138.129.90:20000";
+	ParameterValueStruct[3].Name = "Device.LAN.IPAddress";
+	ParameterValueStruct[3].Value = "182.138.129.90";
+	ParameterValueStruct[4].Name = "Device.LAN.MACAddress";
+	ParameterValueStruct[4].Value = "00262E0026D0";
+	ParameterValueStruct[5].Name = "Device.X_CTC_IPTV.STBID";
+	ParameterValueStruct[5].Value = "00100299001000B0000100227E00EFF0";
+	struct cwmp1__ParameterValueStruct *pParaValueStruct[6];
+	for(;i < 6; i++)
+		pParaValueStruct[i] = &ParameterValueStruct[i];
+				
+	ParameterValueList.__ptrParameterValueStruct = pParaValueStruct;
+	inform.ParameterList = &ParameterValueList;
+				
+		//fprintf(stderr, "soap state %d.\n", soap->state);
+	//soap_set_omode(soap, SOAP_IO_KEEPALIVE);
+	//TR69CLOG(TR69C_INFO, "KEEP: %d, MODE: %d, IMODE: %d, OMODE: %d", soap->keep_alive, soap->mode, soap->imode, soap->omode);
+
+	if(soap_call___cwmp1__Inform(soap, get_app()->acsurl, "", &inform, &informres) == SOAP_OK)
+		TR69CLOG(TR69C_INFO, "Inform message send success.");
+	
+	if (soap->error)
+	{
+#ifdef HTTP_DA
+		if(soap->error == 401)
+		{
+			if (!strcmp(soap->authrealm, "gSOAP Web Server Admin")) // determine authentication realm 
+			{
+				http_da_save(soap, get_app()->httpda_info, "gSOAP Web Server Admin", "aaa", "111"); // set userid and passwd for this realm
+				TR69CLOG(TR69C_INFO, "Inform message auth: realm=%s, userid=%s, passwd=%s", soap->authrealm, soap->userid, soap->passwd);
+				ret = soap_call___cwmp1__Inform(soap, get_app()->acsurl, "", &inform, &informres);
+				if(ret)
+					soap_print_fault(soap, stderr);
+				else
+					TR69CLOG(TR69C_INFO, "Inform message(auth) send success.");
+				/*http_da_restore(soap, &info);
+				if (!soap_call___cwmp1__Inform(soap, get_app()->acsurl, "", &inform, &informres)) // retry
+				{
+					//http_da_restore(&soap, &info); // restore userid and passwd	
+					http_da_release(&soap, &info); // remove userid and passwd
+				}*/
+				//http_da_release(soap, get_app()->httpda_info); // remove userid and passwd
+				//soap_end(soap);
+			}
+		}
+		else
+		{
+#endif
+			soap_print_fault(soap, stderr);
+			return -1;
+#ifdef HTTP_DA
+		}
+#endif
+	}
+	else
+	{
+		TR69CLOG(TR69C_INFO, "Send inform request succeeded.");
+	}
+	return soap->socket;
+}
+
+int send_boot_inform()
+{
+	return 0;
+}
+
+//TODO: may be need process tr069 notification.
+int send_inform(struct soap *soap, INFORMTYPE type, char *parameter)
+{
+	TR69CLOG(TR69C_INFO, "Send inform request to %s, type = %d.", get_app()->acsurl, type);
+	int fd = 0;
+
+	switch(type)
+	{
+		case IF_BOOTSTRAP:
+		{
+			fd = send_bootstrap_inform(soap);
+			break;
+		}
+		default:
+			TR69CLOG(TR69C_INFO, "Unknown inform type : %d\n", type);
+	}
+	
+	if(fd > 0)
+		send_empty(soap);
+		
+	return fd;
+}

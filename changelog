@@ -1,0 +1,12 @@
+2011-8-25 15:52:42 jiangchen
+初始版本
+2011-8-25 15:53:34 jiangchen
+增加CLI功能，以及相应命令。
+增加多Client支持。
+增加HTTP Digest鉴权。(需要Digest参数realm，username，passwd)
+
+2011-9-1 9:51:57 jiangchen
+增加TR069 PING命令。
+
+2012-3-1 17:14:20 jiangchen
+修改为域套接字，增加配置参数。

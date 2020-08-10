@@ -1,0 +1,9 @@
+POST /~engelen/calcserver.cgi HTTP/1.1
+Host: websrv.cs.fsu.edu
+User-Agent: gSOAP/2.8
+Content-Type: text/xml; charset=utf-8
+Content-Length: 446
+Connection: close
+SOAPAction: ""
+
+<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="urn:calc"><SOAP-ENV:Body SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><ns:add><a>2</a><b>2</b></ns:add></SOAP-ENV:Body></SOAP-ENV:Envelope>
